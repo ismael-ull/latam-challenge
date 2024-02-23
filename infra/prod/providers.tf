@@ -11,7 +11,6 @@ variable "project" {}
 variable "region" {}
 variable "zone" {}
 variable "key" {}
-variable "prefix" {}
 
 
 ##############################################################################################
@@ -27,7 +26,7 @@ terraform {
   }
   backend "gcs" {
    bucket  = "lc-tf-states"
-   prefix  = var.prefix
+   prefix  = "production"
  }
 }
 
