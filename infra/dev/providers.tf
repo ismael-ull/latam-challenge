@@ -10,7 +10,7 @@
 variable "project" {}
 variable "region" {}
 variable "zone" {}
-variable "tf-sa" {}
+variable "key" {}
 variable "prefix" {}
 
 
@@ -34,7 +34,7 @@ terraform {
 provider "google" {
     project = var.project
     region = var.region
-    impersonate_service_account_email = var.tf-sa
+    credentials = var.key
     }
 
 

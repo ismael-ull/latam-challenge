@@ -22,4 +22,6 @@ go.work
 
 # Folders
 secrets/
-.terraform/*
+.terraform/
+.terraform.lock.hcl
+.terraform.tfstate*
