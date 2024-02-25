@@ -26,10 +26,10 @@ module "cloud_run" {
       image = "us-docker.pkg.dev/cloudrun/container/hello"
       env = {
         PROJECT_ID = var.project,
-        CLOUDSQL_INSTANCE_NAME = "VALUE2",
-        DATABASE_NAME = "VALUE3",
-        DATABASE_SCHEMA = "VALUE4",
-        DATABASE_USERNAME = "VALUE5"
+        CLOUDSQL_INSTANCE_NAME = module.lc-dbinstance.name,
+        DATABASE_NAME = google_sql_database.lc-database.name,
+        DATABASE_SCHEMA = "lctable",
+        DATABASE_USERNAME = "lcadmin"
       }
       env_from = {
         SECRET1 = {

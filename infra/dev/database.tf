@@ -1,7 +1,7 @@
-module "lc-db" {
+module "lc-dbinstance" {
   source     = "../cff-modules/cloudsql-instance"
   project_id = var.project
-  name             = "lc-db-01"
+  name             = "lc-dbinstance"
   region           = var.region
   database_version = "MYSQL_8_0"
   tier             = "db-g1-small"
@@ -9,11 +9,18 @@ module "lc-db" {
   network_config = {
     connectivity = {
       public_ipv4 = true      
-    }
-   users = {    
+    }   
+  }
+  users = {    
     lcadmin = {
       password = module.secret-manager-backend.ids["CLOUSQL_PASSWD"]
     }
   }
-  }
 }
+
+resource "google_sql_database" "lc-database" {
+  name     = "lc-database"
+  instance = module.lc-dbinstance.name
+}
+
+
