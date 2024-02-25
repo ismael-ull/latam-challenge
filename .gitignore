@@ -26,3 +26,5 @@ secrets/
 .terraform.lock.hcl
 .terraform.tfstate*
 latamchallengesecrets.zip
+infra/dev/tfplan
+infra/prod/tfplan
