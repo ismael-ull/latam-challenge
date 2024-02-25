@@ -1,0 +1,4 @@
+Flask==2.0.1
+google-cloud-pubsub==2.8.0
+google-cloud-secret-manager==2.8.0
+google-cloud-sql==2.8.0
