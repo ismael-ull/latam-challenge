@@ -7,7 +7,7 @@ WORKDIR /app
 
 # Retrieve application dependencies.
 # This allows the container build to reuse cached dependencies.
-COPY go.* ./
+COPY *.go ./
 RUN go mod download
 
 # Copy local code to the container image.
