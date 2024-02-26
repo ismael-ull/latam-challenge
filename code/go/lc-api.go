@@ -61,7 +61,11 @@ func main() {
 
     // Set up Pub/Sub client
     ctx := context.Background()
-    pubSubClient, err = pubsub.NewClient(ctx, "")
+    projectID := os.Getenv("PROJECT_ID")
+    if projectID == "" {
+        log.Fatal("Environment variable PROJECT_ID is not set")
+    }
+    pubSubClient, err = pubsub.NewClient(ctx, projectID)
     if err != nil {
         log.Fatalf("Failed to create PubSub client: %v", err)
     }
