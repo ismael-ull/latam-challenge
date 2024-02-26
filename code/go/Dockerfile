@@ -1,13 +1,15 @@
 # Use the official Golang image to create a build artifact.
 # https://hub.docker.com/_/golang
-FROM golang:1.17 as builder
+FROM golang:1.17 AS builder
 
 # Create and change to the app directory.
 WORKDIR /app
 
+# Copy go.mod and, if it exists, go.sum.
+COPY go.mod ./
+COPY go.sum* ./
+
 # Retrieve application dependencies.
-# This allows the container build to reuse cached dependencies.
-COPY go.* ./
 RUN go mod download
 
 # Copy local code to the container image.
