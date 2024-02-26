@@ -17,7 +17,7 @@ COPY . ./
 
 # Build the binary.
 # -o lc-app specifies the output file name, it should match the binary name in the CMD directive.
-RUN CGO_ENABLED=0 GOOS=linux go build -v -o lc-app
+RUN CGO_ENABLED=0 GOOS=linux go build -v -o lc-api-go
 
 # Use the official Debian slim image for a lean production container.
 # https://hub.docker.com/_/debian
@@ -27,7 +27,7 @@ RUN set -x && apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy the binary to the production image from the builder stage.
-COPY --from=builder /app/lc-app /lc-app
+COPY --from=builder /app/lc-api-go /lc-api-go
 
 # Run the web service on container startup.
-CMD ["/lc-app"]
+CMD ["/lc-api-go"]
