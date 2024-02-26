@@ -13,7 +13,7 @@ module "lc-dbinstance" {
   }
   users = {    
     lcadmin = {
-      password = module.secret-manager-backend.ids["CLOUSQL_PASSWD"]
+      password = module.secret-manager-cludsqlpasswd.ids["CLOUDSQL_PASSWD"]
     }
   }
 }

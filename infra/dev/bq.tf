@@ -1,7 +1,7 @@
 
 locals {
   lc-db-schema = jsonencode([
-    { name = "ID", type = "INT" },
+    { name = "ID", type = "STRING" },
     { name = "Name", type = "STRING" },
     { name = "LastName", type = "STRING" },
     { name = "FieldA", type = "STRING" },
@@ -14,7 +14,7 @@ module "bigquery-lc" {
   source     = "../cff-modules/bigquery-dataset"
   project_id = var.project
   id         = "lc_bq_dataset"
-  /**iam = {
+  iam = {
     "roles/bigquery.dataOwner" = ["serviceAccount:${module.sa-pubsub.email}"]
   }
   tables = {
@@ -23,5 +23,5 @@ module "bigquery-lc" {
       schema              = local.lc-db-schema
       deletion_protection = true
     }
-  }**/
+  }
 }
