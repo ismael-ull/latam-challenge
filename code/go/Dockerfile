@@ -7,15 +7,15 @@ WORKDIR /app
 
 # Retrieve application dependencies.
 # This allows the container build to reuse cached dependencies.
-COPY *.go ./
+COPY go.* ./
 RUN go mod download
 
 # Copy local code to the container image.
 COPY . ./
 
 # Build the binary.
-# -o myapp specifies the output file name, it should match the binary name in the CMD directive.
-RUN CGO_ENABLED=0 GOOS=linux go build -v -o myapp
+# -o lc-app specifies the output file name, it should match the binary name in the CMD directive.
+RUN CGO_ENABLED=0 GOOS=linux go build -v -o lc-app
 
 # Use the official Debian slim image for a lean production container.
 # https://hub.docker.com/_/debian
@@ -25,7 +25,7 @@ RUN set -x && apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy the binary to the production image from the builder stage.
-COPY --from=builder /app/myapp /myapp
+COPY --from=builder /app/lc-app /lc-app
 
 # Run the web service on container startup.
-CMD ["/myapp"]
+CMD ["/lc-app"]
