@@ -1,7 +1,5 @@
-USE lc-database;
-
 CREATE TABLE `lctable` (
-  `ID` int(9) unsigned NOT NULL,
+  `ID` varchar(100) NOT NULL,
   `Name` varchar(100) NOT NULL,
   `LastName` varchar(100) NOT NULL,
   `FieldA` varchar(255) NOT NULL,
