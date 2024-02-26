@@ -23,7 +23,7 @@ module "cloud_run" {
   name       = "lc-backend"
   containers = {
     hello = {
-      image = "us-docker.pkg.dev/cloudrun/container/hello"
+      image = "us-central1-docker.pkg.dev/latam-challenge-infra/lc-repo-dev/lc-api"
       env = {
         PROJECT_ID = var.project,
         CLOUDSQL_INSTANCE_NAME = module.lc-dbinstance.name,
@@ -43,4 +43,13 @@ module "cloud_run" {
     "roles/run.invoker" = ["allUsers"]
   }
   service_account_create = true
+}
+
+resource "google_project_iam_binding" "cloudrun-agent" {
+  project = var.project
+  role    = "roles/artifactregistry.reader"
+
+  members = [
+    "serviceAccount:service-392642026277@serverless-robot-prod.iam.gserviceaccount.com",
+  ]
 }
