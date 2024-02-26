@@ -11,10 +11,10 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the Python application code to the container
-COPY app.py .
+COPY lc-api.py .
 
 # Expose the port that the application will listen on
 EXPOSE 8080
 
 # Run the Python application
-CMD ["python", "app.py"]
+CMD ["python", "lc-api.py"]
