@@ -160,3 +160,12 @@ resource "google_cloud_run_service" "lc-backend-api" {
     latest_revision = true
   }
 }
+
+resource "google_cloud_run_service_iam_binding" "default" {
+  location = google_cloud_run_service.lc-backend-api.location
+  service  = google_cloud_run_service.lc-backend-api.name
+  role     = "roles/run.invoker"
+  members = [
+    "allUsers"
+  ]
+}
