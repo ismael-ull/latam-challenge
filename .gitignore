@@ -28,3 +28,5 @@ secrets/
 latamchallengesecrets.zip
 infra/dev/tfplan
 infra/prod/tfplan
+.DS_Store
+
