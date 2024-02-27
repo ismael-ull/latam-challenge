@@ -1,6 +1,6 @@
 # LATAM Airlines DevSecOps Challenge
 ### _Ismael Ull_
-A continuación se detallan los diferentes componentes de la soculión imlpementada. Cabe destacar que algunas conifiguraciones pueden ser mejoradas pero, por cuestiones de tiempo, se ha optado por realizarlas de manera genérica teniendo en cuenta que es una demo. en cada caso habrá un apartado denominado **TO-DO** el cual indicará las recomendaciones para seguir las buenas prácticas y pensar en un ambiente productivo real.
+A continuación se detallan los diferentes componentes de la solución imlpementada. Cabe destacar que algunas configuraciones pueden ser mejoradas pero, por cuestiones de tiempo, se ha optado por realizarlas de manera genérica teniendo en cuenta que es una demo. en cada caso habrá un apartado denominado **TO-DO** el cual indicará las recomendaciones para seguir las buenas prácticas y pensar en un ambiente productivo real.
 
 ## Parte 1: Infraestructura
 
