@@ -6,7 +6,7 @@ A continuación se detallan los diferentes componentes de la soculión imlpement
 
 El sistema cuenta de dos microservicios los cuales son para ingesta y consulta de datos independientemente. Ambos utilizan una base de datos ***Mysql*** de ***CloudSQL*** para grabar y consultar los datos debido al balance entre calidad y precio del mismo buscando un servicio gestionado que permita escalabilidad.
 
-![Infra](assets/infra01.jpg)
+![Infra](assets/lc-infra-actual.jpg)
 
 El mismo endpoint que recibe los datos y los graba en la base de datos tambièn los publica en un tópico de Pub Sub para que los mismos sean almacenados en ***BigQuery*** para su posterior análisis.
 Dependiendo los requerimientos es posible modificar este comportamiento para exportar a BQ una vez al día, por ejemplo, si se desea tener mas control sobre los costos o los análisis no requieren tener datos actualizados al instante.
@@ -32,4 +32,6 @@ Como se indicó anteriormente, si pensamos en una solución a gran escala donde 
 **TO-DO*:*
 - Agregar un *API Gateway* entre el ***LoadBalancer*** y los backends ya que no es buena práctica que las APIs estén expuestas directamente a internet.
 
-
+##Infra final
+Según lo detallado en puntos anteriores, la infraestructura objetivo es la siguiente:
+![Infra](assets/lc-infra-target.jpg)
