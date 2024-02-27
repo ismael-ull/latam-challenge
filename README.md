@@ -6,7 +6,7 @@ A continuación se detallan los diferentes componentes de la soculión imlpement
 
 El sistema cuenta de dos microservicios los cuales son para ingesta y consulta de datos independientemente. Ambos utilizan una base de datos Mysql de CloudSQL para grabar y consultar los datos debido al balance entre calidad y precio del mismo buscando un servicio gestionado que permita escalabilidad.
 
-![Infra](../../assets/infra01.jpg)
+![Infra](assets/infra01.jpg)
 
 ### IaC
 
