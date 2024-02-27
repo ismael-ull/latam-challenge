@@ -6,7 +6,7 @@ A continuación se detallan los diferentes componentes de la soculión imlpement
 
 El sistema cuenta de dos microservicios los cuales son para ingesta y consulta de datos independientemente. Ambos utilizan una base de datos ***Mysql*** de ***CloudSQL*** para grabar y consultar los datos debido al balance entre calidad y precio del mismo buscando un servicio gestionado que permita escalabilidad.
 
-![Infra](assets/infra01.jpg)
+![Infra](assets/infra.jpg)
 
 El mismo endpoint que recibe los datos y los graba en la base de datos tambièn los publica en un tópico de Pub Sub para que los mismos sean almacenados en ***BigQuery*** para su posterior análisis.
 Dependiendo los requerimientos es posible modificar este comportamiento para exportar a BQ una vez al día, por ejemplo, si se desea tener mas control sobre los costos o los análisis no requieren tener datos actualizados al instante.
@@ -19,6 +19,8 @@ En lo posible se crean *Service Accounts* específicas para cada servicio con lo
 
 Se utiliza Terraform para gestionar la infraestructura para facilitar el versionado y trabajo colaborativo del equipo de ingenieros ***Cloud*** y ***DevOps***. Los archivos declarativos se almacenan junto al código de la aplicación en ***GitHub*** y los estados (inicialmente de Desarrollo y Produccion) se almacenan en un bucket especìfico para tal fin y con la seguridad adecuada.
 
+En la mayoría de los recursos se han utilizado los módulos de [Cloud Foundation Fabric](https://cloud.google.com/foundation-toolkit) de Google.
+
 **TO-DO:**
 - Utilizar ***Terragrunt*** para unificar la configuración de los ambientes sin perder la personalización de variables.
 - Configurar _Service Account impersonation_ para poder trabajar con ***Terraform*** y ***Terragrunt*** sin la necesidad de distribución de keys.
@@ -29,4 +31,5 @@ Como se indicó anteriormente, si pensamos en una solución a gran escala donde 
 
 **TO-DO*:*
 - Agregar un *API Gateway* entre el ***LoadBalancer*** y los backends ya que no es buena práctica que las APIs estén expuestas directamente a internet.
+
 
