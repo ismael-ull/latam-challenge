@@ -20,7 +20,7 @@ variable "sa-key" {}
 terraform {
   backend "gcs" {
    bucket  = "lc-tf-states"
-   prefix  = "development"
+   prefix  = "production"
  }
 }
 
