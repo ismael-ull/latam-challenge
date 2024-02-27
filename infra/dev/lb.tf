@@ -1,7 +1,7 @@
 module "glb-0" {
   source     = "../cff-modules/net-lb-app-ext"
   project_id = var.project
-  name       = "glb-test-0"
+  name       = "lc-lb"
   backend_service_configs = {
     default = {
       backends = [
