@@ -1,12 +1,12 @@
 # LATAM Airlines DevSecOps Challenge
 ### _Ismael Ull_
-A continuación se detallan los diferentes componentes de la soculión imlpementada. Cabe destacar que algunas conifiguraciones pueden ser mejoradas pero, por cuestiones de tiempo, se ha optado por realizarlas de manera genérica teniendo en cuenta que es una demo. en cada caso habrá un apartado denominado **TO-DO** el cual indicará las recomendaciones para seguir las buenas prácticas y pensar en un ambiente productivo real.
+A continuación se detallan los diferentes componentes de la solución imlpementada. Cabe destacar que algunas configuraciones pueden ser mejoradas pero, por cuestiones de tiempo, se ha optado por realizarlas de manera genérica teniendo en cuenta que es una demo. en cada caso habrá un apartado denominado **TO-DO** el cual indicará las recomendaciones para seguir las buenas prácticas y pensar en un ambiente productivo real.
 
 ## Parte 1: Infraestructura
 
 El sistema cuenta de dos microservicios los cuales son para ingesta y consulta de datos independientemente. Ambos utilizan una base de datos Mysql de CloudSQL para grabar y consultar los datos debido al balance entre calidad y precio del mismo buscando un servicio gestionado que permita escalabilidad.
 
-![Infra](assets/infra.jpg)
+![Infra](assets/infra01.jpg)
 
 ### IaC
 
